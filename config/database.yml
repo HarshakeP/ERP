@@ -26,8 +26,9 @@ development:
 #   database: erp_test
 #   # database: db/test.sqlite3
 
-# production:
-#   <<: *default
-#   # database: db/production.sqlite3
-#   database: erp_production
-#   username: root
+production:
+  <<: *default
+  # database: db/production.sqlite3
+  database: erp_pro
+  username: postgres
+  password: postgres
