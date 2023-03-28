@@ -17,7 +17,6 @@
 
   <body>
     <% if current_employee.present? %>
-    <%#debugger%>
       <%case current_employee.roles.first.name%>
         <%when "admin"%>
           <%= render "admin/header"%>

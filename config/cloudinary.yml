@@ -1,0 +1,12 @@
+development:
+  cloud_name: "digeebdos"
+  api_key: "777984599524355"
+  api_secret: "zuEit9gvujRRGD3nnJjlFLdmxyE"
+  enhance_image_tag: true
+  static_file_support: false
+production:
+  cloud_name: "digeebdos"
+  api_key: "777984599524355"
+  api_secret: "zuEit9gvujRRGD3nnJjlFLdmxyE"
+  enhance_image_tag: true
+  static_file_support: true

@@ -28,7 +28,6 @@
       </tbody>
       <% iterator_leave += 1%>
       <% elsif iterator_attendence < @attendences.size && @attendences[iterator_attendence].created_at.to_date == date%>
-      <%#debugger%>
         <tbody>
           <tr>
             <th scope="row"><%= date %></th>

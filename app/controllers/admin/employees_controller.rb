@@ -1,8 +1,8 @@
 class Admin::EmployeesController < Admin::BaseController
+
   def index
     @employees = Employee.all
   end
-
   def show
     @employee = employee
     # @attendences = @employee.attendences
@@ -14,7 +14,9 @@ class Admin::EmployeesController < Admin::BaseController
 
   def create
     role = params[:employee].delete :role
+    # result = Cloudinary::Uploader.upload(params[:employee][:image],:folder => "Erp")
     @employee = Employee.new(params_employees)
+    # @employee.image = result['url']
     if @employee.save
       Employee.last.add_role(role) if Employee.last.roles.blank?
       redirect_to [:admin, @employee]
@@ -45,9 +47,9 @@ class Admin::EmployeesController < Admin::BaseController
     @employee = employee
 
     if @employee.destroy
-      redirect_to [:admin, @employees]
+      redirect_to admin_employees_path
     else
-      redirect_to [:admin, @employee]
+      redirect_to admin_employees_path
     end
   end
 
@@ -59,7 +61,7 @@ class Admin::EmployeesController < Admin::BaseController
 
   def params_employees
     if params[:employee][:password].present?
-      params.require(:employee).permit(:email, :password, :password_confirmation, :name, :post)
+      params.require(:employee).permit(:email, :password, :password_confirmation, :name, :post, :image)
     else
       params.require(:employee).permit(:email, :name, :post)
     end

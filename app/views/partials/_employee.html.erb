@@ -47,7 +47,7 @@
     <%= f.text_field :post, autocomplete: "post", :required => true %>
   </div>
 
-  <% if params[:action] == "new" || (@employee.roles.first.name != "admin" && params[:action] == "edit")%>
+  <% if params[:action] == "new" || (@employee.roles.first&.name != "admin" && params[:action] == "edit")%>
     <div class="mb-3">
     &nbsp;
       <%= f.label :role %><br />
@@ -60,6 +60,14 @@
       <% end%>
     </div>
   <% end%>
+
+  <div class="mb-3">
+  &nbsp;
+    <%= f.label :image %><br />
+    &nbsp;
+    <%= f.file_field :image, :required => true %>
+  </div>
+
 &nbsp;
   <div class="actions">
   &nbsp;

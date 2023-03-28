@@ -14,6 +14,7 @@
   def create
     @notice = Notice.new(notice_params)
     if @notice.save
+      StatusMailer.with(notice: @notice).new_status_mail.deliver_now
       redirect_to [:admin, @notice]
     else
       render :new
@@ -37,7 +38,7 @@
     @notice = notice
 
     if @notice.destroy
-      redirect_to [:admin, @notices]
+      redirect_to admin_dashboard_index_path
     else
       redirect_to [:admin, @notice]
     end

@@ -11,9 +11,9 @@ gem "rails", "~> 7.0.4"
 gem "sprockets-rails"
 
 # Use sqlite3 as the database for Active Record
-gem "sqlite3", "~> 1.4"
+# gem "sqlite3", "~> 1.4"
 
-# gem 'pg'
+gem 'pg'
 
 # Use the Puma web server [https://github.com/puma/puma]
 gem "puma", "~> 5.0"
@@ -59,7 +59,14 @@ end
 group :development do
   # Use console on exceptions pages [https://github.com/rails/web-console]
   gem "web-console"
-
+  gem 'byebug', platform: :mri
+  gem 'factory_girl_rails'
+  gem 'capybara'
+  gem 'database_cleaner'
+  gem 'capistrano', '~> 3.11'
+  gem 'capistrano-rails', '~> 1.4'
+  gem 'capistrano-passenger', '~> 0.2.0'
+  gem 'capistrano-rbenv', '~> 2.1', '>= 2.1.4'
   # Add speed badges [https://github.com/MiniProfiler/rack-mini-profiler]
   # gem "rack-mini-profiler"
 
@@ -73,11 +80,19 @@ group :test do
   gem "selenium-webdriver"
   gem "webdrivers"
 end
-
+gem 'simplecov', require: false, group: :test
 gem "devise"
+gem "active_model_serializers"
+gem 'cloudinary'
 
 gem "rolify"
 
 gem 'dotenv-rails', groups: [:development, :test]
 
 gem 'stripe'
+
+gem 'rspec-rails'
+gem 'rails-controller-testing'
+gem "sidekiq", "<7"
+
+# gem 'sidekiq'

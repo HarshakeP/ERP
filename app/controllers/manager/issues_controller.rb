@@ -1,6 +1,5 @@
 class Manager::IssuesController < Manager::BaseController
   def index
-    # debugger
     @self_issues = current_employee.issues
     @issues = Issue.joins(:employee).where("manager_id = :current_employee", current_employee: current_employee.id)
     # @issues = Employee.joins(:issues).subordinates_issues

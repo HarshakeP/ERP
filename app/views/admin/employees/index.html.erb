@@ -1,6 +1,6 @@
 <h1 class = "text-center">Employees</h1>
 <span>
-  <%= button_to "Add Employee", new_admin_employee_path , method: :get, class: "btn btn-secondary" %> 
+  <%= button_to "Add Employee", new_admin_employee_path , method: :get, class: "btn btn-secondary" %>
 </span>
 <table class="table">
   <thead>
@@ -22,7 +22,7 @@
       <td><%= employee.name %></td>
       <td><%= employee.email %></td>
       <td><%= employee.post %></td>
-      <td><%= employee.roles.first.name%></td>
+      <td><%= employee.roles.first&.name%></td>
       <th><a href="/admin/employees/<%=employee.id%>" class="link-dark">View</a></th>
       <th><%= button_to "Delete", admin_employee_path(employee.id), method: :delete, class: "btn btn-secondary" %></th>
     </tr>

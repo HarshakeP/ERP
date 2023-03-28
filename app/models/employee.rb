@@ -7,11 +7,13 @@ class Employee < ApplicationRecord
   has_many :leaves
   has_and_belongs_to_many :projects
   has_and_belongs_to_many :courses
+  has_many :pictures, as: :imageable
+  has_one_attached :avatar
 
   has_many :subordinates, class_name: "Employee", foreign_key: "manager_id"
   belongs_to :manager, class_name: "Employee", optional: true
 
-  # validates :title, presence: true, :allow_blank => true, on: :update
+  validates :post, :name, presence: true #, :allow_blank => true, on: :update
 
   devise :database_authenticatable, :registerable,
          :recoverable, :rememberable, :validatable
