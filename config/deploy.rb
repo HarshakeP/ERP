@@ -6,7 +6,7 @@ lock "~> 3.17.2"
 
 set :application, "erp"
 set :repo_url, "https://github.com/HarshakeP/ERP.git"
-
+set :branch, ENV['BRANCH'] if ENV['BRANCH']
 # Deploy to the user's home directory
 set :deploy_to, "/home/deploy/#{fetch :application}"
 
