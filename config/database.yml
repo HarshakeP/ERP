@@ -85,3 +85,7 @@ test:
   # <<: *default
   database: erp_test
   # database: postgres
+
+production:
+  <<: *default
+  database: erp_deployment
